@@ -5,7 +5,7 @@ var mongoose= require("./db/connection");
 
 var app     = express();
 
-var Candidate = mongoose.model("Candidate");
+var Job = mongoose.model("Job");
 
 app.set("port", process.env.PORT || 3001);
 app.set("view engine", "hbs");
@@ -19,36 +19,36 @@ app.use("/assets", express.static("public"));
 app.use(parser.urlencoded({extended: true}));
 
 app.get("/", function(req, res){
-  res.render("candidates");
+  res.render("jobs");
 });
 
-app.get("/api/candidates", function(req, res){
-  Candidate.find({}).then(function(candidates){
-    res.json(candidates)
+app.get("/api/jobs", function(req, res){
+  Job.find({}).then(function(jobs){
+    res.json(jobs)
   });
 });
 
-app.get("/api/candidates/:name", function(req, res){
-  Candidate.findOne({name: req.params.name}).then(function(candidate){
-    res.json(candidate);
+app.get("/api/jobs/:title", function(req, res){
+  Job.findOne({title: req.params.name}).then(function(job){
+    res.json(job);
   });
 });
 
-app.post("/api/candidates", function(req, res){
-  Candidate.create(req.body.candidate).then(function(candidate){
-    res.json(candidate);
+app.post("/api/jobs", function(req, res){
+  Job.create(req.body.job).then(function(job){
+    res.json(job);
   });
 });
 
-app.delete("/api/candidates/:name/delete", function(req, res){
-  Candidate.findOneAndRemove({name: req.params.name}).then(function(){
+app.delete("/api/jobs/:title/delete", function(req, res){
+  Job.findOneAndRemove({title: req.params.name}).then(function(){
     res.json({success: true})
   });
 });
 
-app.put("/api/candidates/:name", function(req, res){
-  Candidate.findOneAndUpdate({name: req.params.name}, req.body.candidate, {new: true}).then(function(candidate){
-    res.json(candidate);
+app.put("/api/jobs/:title", function(req, res){
+  Job.findOneAndUpdate({title: req.params.name}, req.body.job, {new: true}).then(function(candidate){
+    res.json(job);
   });
 });
 

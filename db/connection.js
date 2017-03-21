@@ -1,13 +1,15 @@
 var mongoose  = require("mongoose");
 
-var CandidateSchema = new mongoose.Schema(
+var JobSchema = new mongoose.Schema(
   {
-    name: String,
-    year: Number
+    title: String,
+    desc: String,
+    location: String,
+    poc: String
   }
 );
 
-mongoose.model("Candidate", CandidateSchema);
-mongoose.connect("mongodb://localhost/whenpresident");
+mongoose.model("Job", JobSchema);
+mongoose.connect("mongodb://localhost/jobboard");
 
 module.exports = mongoose;
