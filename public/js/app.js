@@ -1,5 +1,5 @@
 angular
-  .module("whenPresident", [
+  .module("jobboard", [
     "ui.router",
     "ngResource"
   ])
@@ -7,18 +7,18 @@ angular
     "$stateProvider",
     Router
   ])
-  .factory("Candidate", [
+  .factory("Job", [
     "$resource",
-    Candidate
+    Job
   ])
   .controller("indexCtrl", [
     "$state",
-    "Candidate",
+    "Job",
     indexController
   ])
   .controller("showCtrl", [
     "$stateParams",
-    "Candidate",
+    "Job",
     showController
   ])
 
@@ -29,34 +29,34 @@ function Router($stateProvider) {
     templateUrl:"/assets/js/ng-views/welcome.html"
   })
   .state("index", {
-  url:"/candidates",
+  url:"/jobs",
   templateUrl:"/assets/js/ng-views/index.html",
   controller: "indexCtrl",
   controllerAs: "vm"
 })
   .state("show", {
-    url:"/candidate/:name",
+    url:"/job/:title",
     templateUrl:"/assets/js/ng-views/show.html",
     controller: "showCtrl",
     controllerAs: "vm"
   })
 }
 
-function Candidate ($resource) {
-  return $resource("api/candidates/:name", {}, {
+function Job ($resource) {
+  return $resource("api/jobs/:title", {}, {
     update: { method: "PUT"}
   })
 }
 
-function indexController (Candidate) {
-  this.candidates = Candidate.query()
-  this.newCandidate = new Candidate ()
-  this.newCandidate.create = function () {
-    this.newCandidate.$save(function())
+function indexController (Job) {
+  this.jobs = Job.query()
+  this.newJob = new Job ()
+  this.newJob.create = function () {
+    this.newJob.$save(function())
 
 }
 
-function showController ($stateParams, Candidate) {
-  this.candidate = Candidate.get({name: $stateParams.name})
+function showController ($stateParams, Job) {
+  this.job = Job.get({title: $stateParams.title})
   }
 }
