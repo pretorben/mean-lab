@@ -1,11 +1,13 @@
-<h2>All Candidates<h2>
-  <h2 data-ng-repeat="candidate in vm.candidates">
-    <a data-ui-sref="show({name: candidate.name})">{{candidate.name}} for President in {{candidate.year}}</a>
+<h2>All Jobs<h2>
+  <h2 data-ng-repeat="job in vm.jobs">
+    <a data-ui-sref="show({name: job.name})">{{job.name}} for President in {{job.year}}</a>
   </h2>
 
-  <h2>Join the Race</h2>
+  <h2>Add Job Listing</h2>
   <form>
-    <input type="text" placeholder="Name" data-ng-model="vm.candidate.name" />
-    <input type="text" placeholder="Election Year" data-ng-model="vm.candidate.year" />
+    <input type="text" placeholder="Title" data-ng-model="vm.job.title" />
+    <input type="text" placeholder="Location" data-ng-model="vm.job.location" />
+    <input type="text" placeholder="Point of Contact" data-ng-model="vm.job.poc" />
+    <input type="text" placeholder="Description" data-ng-model="vm.job.desc" />
     <button type="button" data-ng-click="vm.create()">Start Campaign</button>
   </form>

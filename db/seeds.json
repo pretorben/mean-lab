@@ -2,19 +2,19 @@
   {
     "title": "Burger Rotation Specialist",
     "location": "Mooby's",
-    "POC": "Dante Hicks",
-    "description": "Flipping burgers all day"
+    "poc": "Dante Hicks",
+    "desc": "Flipping burgers all day"
   },
   {
     "title": "Analyst",
     "location": "A Dark, Windowless Basement",
-    "POC": "A Salty Retired Chief",
-    "description": "Do stuff and things, don't ask questions"
+    "poc": "A Salty Retired Chief",
+    "desc": "Do stuff and things, don't ask questions"
   },
   {
     "title": "Chef",
     "location": "Albuquerque",
-    "POC": "Heisenberg",
-    "description": "Blue skies ahead for my new assistant"
+    "poc": "Heisenberg",
+    "desc": "Blue skies ahead for my new assistant"
   }
 ]

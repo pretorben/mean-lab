@@ -20,7 +20,7 @@ angular
     "$stateParams",
     "Candidate",
     showController
-  ])
+  ]);
 
 function Router($stateProvider) {
   $stateProvider
@@ -39,24 +39,26 @@ function Router($stateProvider) {
     templateUrl:"/assets/js/ng-views/show.html",
     controller: "showCtrl",
     controllerAs: "vm"
-  })
+  });
 }
 
 function Candidate ($resource) {
   return $resource("api/candidates/:name", {}, {
     update: { method: "PUT"}
-  })
+  });
 }
 
 function indexController (Candidate) {
-  this.candidates = Candidate.query()
-  this.newCandidate = new Candidate ()
-  this.newCandidate.create = function () {
-    this.newCandidate.$save(function())
+  this.candidates = Candidate.query();
+  this.newCandidate = new Candidate();
+  this.newCandidate.create = function() {
+    this.newCandidate.$save(function(){
 
+    });
+  };
 }
 
 function showController ($stateParams, Candidate) {
-  this.candidate = Candidate.get({name: $stateParams.name})
+  this.candidate = Candidate.get({name: $stateParams.name});
   }
 }
