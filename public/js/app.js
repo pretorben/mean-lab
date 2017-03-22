@@ -17,6 +17,7 @@ angular
     indexController
   ])
   .controller("showCtrl", [
+    "$state",
     "$stateParams",
     "Job",
     showController
@@ -58,6 +59,16 @@ function indexController ($state, Job) {
 };
 }
 
-function showController ($stateParams, Job) {
+function showController ($state, $stateParams, Job) {
   this.job = Job.get({title: $stateParams.title})
+  this.update = function () {
+    this.job.$update({title: $stateParams.title}).then(function(){
+      $state.go("index")
+    });
+  }
+  this.destroy = function () {
+       this.job.$delete({title: $stateParams.title}).then(function(){
+        $state.go("index")
+      })
+  }
 }
