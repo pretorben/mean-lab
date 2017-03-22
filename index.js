@@ -16,7 +16,7 @@ app.engine(".hbs", hbs({
   defaultLayout:  "layout-main"
 }));
 app.use("/assets", express.static("public"));
-app.use(parser.urlencoded({extended: true}));
+app.use(parser.json({extended: true}));
 
 app.get("/", function(req, res){
   res.render("jobs");
@@ -35,7 +35,7 @@ app.get("/api/jobs/:title", function(req, res){
 });
 
 app.post("/api/jobs", function(req, res){
-  Job.create(req.body.job).then(function(job){
+  Job.create(req.body).then(function(job){
     res.json(job);
   });
 });

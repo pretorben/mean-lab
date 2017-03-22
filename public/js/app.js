@@ -49,11 +49,11 @@ function Job ($resource) {
 }
 
 function indexController ($state, Job) {
-this.jobs = Job.query();
-this.newJob = new Job ();
-this.newJob.create = function () {
-  this.newJob.$save(function(job){
-    $state.go("show", { title: job.title });
+  this.jobs = Job.query();
+  this.newJob = new Job ()
+  this.create = function () {
+      this.newJob.$save().then(function(job){
+        $state.go("show", {title: job.title})
   });
 };
 }
