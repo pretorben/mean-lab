@@ -66,4 +66,9 @@ function showController ($state, $stateParams, Job) {
       $state.go("index")
     });
   }
+  this.destroy = function () {
+       this.job.$delete({title: $stateParams.title}).then(function(){
+        $state.go("index")
+      })
+  }
 }

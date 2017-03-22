@@ -40,7 +40,7 @@ app.post("/api/jobs", function(req, res){
   });
 });
 
-app.delete("/api/jobs/:title/delete", function(req, res){
+app.delete("/api/jobs/:title", function(req, res){
   Job.findOneAndRemove({title: req.params.title}).then(function(){
     res.json({success: true})
   });
