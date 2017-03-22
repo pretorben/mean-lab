@@ -1,6 +1,7 @@
 body{
   font-family: 'Roboto', sans-serif;
   background-color: gray;
+  text-align: center;
 }
 
 header{
@@ -53,10 +54,26 @@ footer{
   margin-bottom: 10px;
 }
 
-.view-header{
+.edit-job{
   text-align: center;
+}
+
+.view-job{
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.view-job>h4{
+  text-align: justify;
+  margin-left: 45%;
 }
 
 .add-form{
   text-align: center;
+  margin-top: 50px;
+}
+
+.list-jobs{
+  text-align: justify;
+  margin-left: 40%;
 }
