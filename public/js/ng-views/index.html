@@ -1,8 +1,8 @@
-<h2>All Jobs<h2>
+<h2 class="view-header">All Jobs<h2>
   <h2 data-ng-repeat="job in vm.jobs">
     <a data-ui-sref="show({title: job.title})">{{job.title}}</a>
   </h2>
-
+<div class="add-form">
   <h2>Add Job Listing</h2>
   <form ng-submit="vm.create()">
     <input type="text" placeholder="Title" data-ng-model="vm.newJob.title" />
@@ -11,3 +11,4 @@
     <input type="text" placeholder="Description" data-ng-model="vm.newJob.desc" />
     <button type="submit">Add Position</button>
   </form>
+</div>
