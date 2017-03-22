@@ -29,7 +29,7 @@ app.get("/api/jobs", function(req, res){
 });
 
 app.get("/api/jobs/:title", function(req, res){
-  Job.findOne({title: req.params.name}).then(function(job){
+  Job.findOne({title: req.params.title}).then(function(job){
     res.json(job);
   });
 });
