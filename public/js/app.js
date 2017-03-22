@@ -62,5 +62,5 @@ function showController ($stateParams, Job) {
   this.job = Job.get({title: $stateParams.title})
   this.update = function () {
     this.job.$update({title: $stateParams.title})
+    };
   }
-}

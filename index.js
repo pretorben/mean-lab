@@ -47,8 +47,8 @@ app.delete("/api/jobs/:title/delete", function(req, res){
 });
 
 app.put("/api/jobs/:title", function(req, res){
-  Job.findOneAndUpdate({title: req.params.title}, req.body, {new: true}).then(function(job){
-    res.json(job);
+  Job.findOneAndUpdate({title: req.params.title}, req.body, {new: true}).then(function(jobs){
+    res.json(jobs);
   });
 });
 
