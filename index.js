@@ -41,13 +41,13 @@ app.post("/api/jobs", function(req, res){
 });
 
 app.delete("/api/jobs/:title/delete", function(req, res){
-  Job.findOneAndRemove({title: req.params.name}).then(function(){
+  Job.findOneAndRemove({title: req.params.title}).then(function(){
     res.json({success: true})
   });
 });
 
 app.put("/api/jobs/:title", function(req, res){
-  Job.findOneAndUpdate({title: req.params.name}, req.body.job, {new: true}).then(function(candidate){
+  Job.findOneAndUpdate({title: req.params.title}, req.body, {new: true}).then(function(job){
     res.json(job);
   });
 });
